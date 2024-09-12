@@ -21,12 +21,16 @@
         sans-serif;
     --font-logo: "Norse", var(--font-family);
 
-    --shadow-color: 286deg 36% 56%;
+    --shadow-color: 0deg 0% 63%;
     --shadow-elevation:
-        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
-        0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
-        2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
-        5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+        0.1px 0px 0.1px hsl(var(--shadow-color) / 0.34),
+        0.5px 0px 0.6px -0.4px hsl(var(--shadow-color) / 0.34),
+        0.9px 0.1px 1px -0.7px hsl(var(--shadow-color) / 0.34),
+        1.4px 0.1px 1.6px -1.1px hsl(var(--shadow-color) / 0.34),
+        2.3px 0.2px 2.6px -1.4px hsl(var(--shadow-color) / 0.34),
+        3.5px 0.3px 4px -1.8px hsl(var(--shadow-color) / 0.34),
+        5.4px 0.4px 6.1px -2.1px hsl(var(--shadow-color) / 0.34),
+        7.9px 0.6px 8.9px -2.5px hsl(var(--shadow-color) / 0.34);
 }
 
 body {
@@ -35,6 +39,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     font-size: 1.125rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 h1 {
@@ -85,6 +91,7 @@ header {
 small {
     padding: 1rem;
     color: white;
+    font-weight: normal;
 }
 
 main {
@@ -92,6 +99,59 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    flex-grow: 1;
     flex-basis: 60%;
+    background: var(--color-main);
+    padding-block: 3rem;
+}
 
+.description p {
+    margin-bottom: 1rem;
+}
+
+form {
+    background: white;
+    width: 100%;
+    box-shadow: var(--shadow-elevation);
+    padding: 1rem;
+    margin-block: 2rem;
+}
+
+form h2 {
+    margin-bottom: 1rem;
+}
+
+.form-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-row div {
+    margin-right: 4rem;
+    margin-bottom: 1rem;
+}
+
+label {
+    font-size: 70%;
+    display: block;
+}
+
+input {
+    border: 1px solid var(--border-color-default);
+    border-radius: 4px;
+}
+
+button {
+    margin-left: 2rem;
+}
+
+.description,
+form,
+.login {
+    padding-inline: 2rem;
 }
