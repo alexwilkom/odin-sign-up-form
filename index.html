@@ -49,21 +49,23 @@
                 <div class="form-row">
                     <div>
                         <label for="email">EMAIL</label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email" placeholder="you@example.com" required>
                     </div>
                     <div>
                         <label for="phone">PHONE NUMBER</label>
-                        <input type="tel" name="phone" id="phone" required>
+                        <input type="tel" name="phone" id="phone" pattern="[0-9]*" required>
+                        <span></span>
                     </div>
                 </div>
                 <div class="form-row">
                     <div>
                         <label for="password">PASSWORD</label>
                         <input type="password" name="password" id="password" required>
+                        <span></span>
                     </div>
                     <div>
-                        <label for="password">CONFIRM PASSWORD</label>
-                        <input type="password" name="password" id="password" required>
+                        <label for="confirm-password">CONFIRM PASSWORD</label>
+                        <input type="password" name="confirm-password" id="confirm-password" required>
                     </div>
                 </div>
             </div>
@@ -71,6 +73,38 @@
         <button type="submit" form="signup-form">Create Account</button>
         <p class="login">Already have an account? <a href="#">Log in</a></p>
     </main>
+
+    <script>
+        const password = document.querySelector("#password");
+        const confirmPassword = document.querySelector("#confirm-password");
+        const form = document.querySelector("form");
+
+        function checkPasswords() {
+            if (password.value !== confirmPassword.value) {
+                password.classList.add("mismatch");
+                confirmPassword.classList.add("mismatch");
+                return false;
+            } else {
+                password.classList.remove("mismatch");
+                confirmPassword.classList.remove("mismatch");
+                return true;
+            }
+        }
+
+        confirmPassword.addEventListener('blur', checkPasswords);
+
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('blur', () => {
+                input.classList.add('user-interacted');
+            });
+        });
+
+        form.addEventListener('submit', (event) => {
+            if (!checkPasswords()) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 
 </html>
