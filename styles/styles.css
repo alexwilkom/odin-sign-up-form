@@ -6,6 +6,7 @@
 :root {
     --color-main: #F9FAFB;
     --action-color: #596D48;
+    --action-color-hover: #4A5C3B;
     --border-color-default: #E5E7EB;
 
     --font-family: system-ui,
@@ -195,6 +196,10 @@ button {
     background: var(--action-color);
     color: white;
     cursor: pointer;
+}
+
+button:hover {
+    background: var(--action-color-hover);
 }
 
 .description,
